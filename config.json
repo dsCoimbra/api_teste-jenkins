@@ -1,0 +1,1 @@
+{"type":"api","name":"api_teste-jenkins","desc":"Api para testar o Jenkins","email":"ds.coimbra96@gmail.com","sequelize":false,"tasy":false,"git":false,"env":"docker-compose.yml"}

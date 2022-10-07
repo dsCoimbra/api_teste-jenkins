@@ -1,0 +1,19 @@
+  
+version: "3" ## especifica a versão do docker-compose file
+
+services: ## Define um serviço
+  api: ## nome do serviço - MS: microserviço
+    build: . ## localização do dockerfile
+    ports:
+      - "3010:3010" ## redirecionamento de porta quando chegar alguma requisição na porta 3001 chama o container na porta configurada no env acima (Ao alterar informar a MESMA porta para que o container funcione corretamente)
+    volumes:
+      - .:/usr/app ## monitoro a pasta atual . e envio as alterações para /usr/app
+  jenkins:
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports: 
+      - 8080:8080
+    container_name: jenkins
+    volumes:
+      - ./docker/jenkins/:/var/jenkins_home
